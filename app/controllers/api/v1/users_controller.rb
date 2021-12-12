@@ -1,5 +1,7 @@
 class Api::V1::UsersController < Api::V1::BaseController
+  before_action :set_user, only: [:show]
   URL ='https://api.weixin.qq.com/sns/jscode2session'
+
   def login
     # ?appid=APPID&secret=SECRET&js_code=JSCODE&grant_type=authorization_code
     wx_params = {
@@ -15,5 +17,30 @@ class Api::V1::UsersController < Api::V1::BaseController
     mp_openid = user_info['openid']
     @user = User.find_by(mp_openid: mp_openid)
     @user = User.create(mp_openid: mp_openid, email: "#{SecureRandom.hex(8)}@mail.com", password: 'password') if @user.blank?
+  #for devise
   end
+
+  def index
+    @users = User.all
+  end
+
+
+  def show
+    set_user
+    @user
+  end
+
+    def new
+    @user = User.new
+    end
+
+
+  private
+
+  def set_user
+    @user = User.find(params[:id])
+  end
+end
+
+
 end
