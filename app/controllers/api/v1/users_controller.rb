@@ -17,12 +17,9 @@ class Api::V1::UsersController < Api::V1::BaseController
     mp_openid = user_info['openid']
     @user = User.find_by(mp_openid: mp_openid)
     @user = User.create(mp_openid: mp_openid, email: "#{SecureRandom.hex(8)}@mail.com", password: 'password') if @user.blank?
-  #for devise
+
   end
 
-  def index
-    @users = User.all
-  end
 
 
   def show
@@ -35,7 +32,6 @@ class Api::V1::UsersController < Api::V1::BaseController
   end
 
 
-  private
 
   def set_user
     @user = User.find(params[:id])
