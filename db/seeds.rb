@@ -22,17 +22,17 @@ puts "seeding users"
 
 items = Item.create!(
   [
-    {name: 'lamp', category:'household', category_id:"1", user_id:'1', description: "Nostalgic", user: users[0]},
-    {name: 'plate', category:'household', category_id:"1",user_id:'1', description: "Nostalgic", user: users[0]},
-    {name: 'plate', category:'household', category_id:"1", user_id:'1', description: "Nostalgic", user: users[0]}
+    {name: 'lamp', category:'household', user_id:'1', description: "Nostalgic", user: users[0]},
+    {name: 'plate', category:'household', user_id:'1', description: "Nostalgic", user: users[0]},
+    {name: 'plate', category:'household', user_id:'1', description: "Nostalgic", user: users[0]}
   ]
 )
 puts "seeding items"
 
 requests = Request.create!(
   [
-    {user_id:'1', item_id:'2'},
-    {user_id:'2', item_id:'1'}
+    {user: users[1], item:items[1]},
+    {user: users[2], item:items[2]}
   ]
 )
 
