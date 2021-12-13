@@ -9,27 +9,27 @@ User.destroy_all
 Item.destroy_all
 Request.destroy_all
 
-put "destroy all data"
+puts "destroy all data"
 
-users = User.create(
+users = User.create!(
   [
-    {nickname:'Huiting', description:"hello GreenBook", email:'hihihi@gmail.com'},
-    {nickname:'Anthony',description:"hello HappyHour",email:'hihihi3@gmail.com'},
-    {nickname:'Heiley',description:"hello Huiting",email:'hihihi2@gmail.com'}
+    {nickname:'Huiting', description:"hello GreenBook", email:'hihihi@gmail.com', password: "123erfg"},
+    {nickname:'Anthony',description:"hello HappyHour",email:'hihihi3@gmail.com', password: "123erfg"},
+    {nickname:'Heiley',description:"hello Huiting",email:'hihihi2@gmail.com',password: "123erfg"}
   ]
 )
 puts "seeding users"
 
-items = Item.create(
+items = Item.create!(
   [
-    {name: 'lamp', category:'household', user_id:'1'},
-    {name: 'plate', category:'household', user_id:'2'},
-    {name: 'plate', category:'household', user_id:'2'}
+    {name: 'lamp', category:'household', category_id:"1", user_id:'1', description: "Nostalgic", user: users[0]},
+    {name: 'plate', category:'household', category_id:"1",user_id:'1', description: "Nostalgic", user: users[0]},
+    {name: 'plate', category:'household', category_id:"1", user_id:'1', description: "Nostalgic", user: users[0]}
   ]
 )
 puts "seeding items"
 
-requests = Request.create(
+requests = Request.create!(
   [
     {user_id:'1', item_id:'2'},
     {user_id:'2', item_id:'1'}
