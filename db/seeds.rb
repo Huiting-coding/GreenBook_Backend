@@ -18,7 +18,7 @@ users = User.create(
     {nickname:'Heiley',description:"hello Huiting",email:'hihihi2@gmail.com'}
   ]
 )
-put "seeding users"
+puts "seeding users"
 
 items = Item.create(
   [
@@ -27,7 +27,7 @@ items = Item.create(
     {name: 'plate', category:'household', user_id:'2'}
   ]
 )
-put "seeding items"
+puts "seeding items"
 
 requests = Request.create(
   [
@@ -36,4 +36,4 @@ requests = Request.create(
   ]
 )
 
-put "seeding requests"
+puts "seeding requests"
