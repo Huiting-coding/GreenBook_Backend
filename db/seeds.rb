@@ -5,3 +5,35 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.destroy_all
+Item.destroy_all
+Request.destroy_all
+
+put "destroy all data"
+
+users = User.create(
+  [
+    {nickname:'Huiting', description:"hello GreenBook", email:'hihihi@gmail.com'},
+    {nickname:'Anthony',description:"hello HappyHour",email:'hihihi3@gmail.com'},
+    {nickname:'Heiley',description:"hello Huiting",email:'hihihi2@gmail.com'}
+  ]
+)
+put "seeding users"
+
+items = Item.create(
+  [
+    {name: 'lamp', category:'household', user_id:'1'},
+    {name: 'plate', category:'household', user_id:'2'},
+    {name: 'plate', category:'household', user_id:'2'}
+  ]
+)
+put "seeding items"
+
+requests = Request.create(
+  [
+    {user_id:'1', item_id:'2'},
+    {user_id:'2', item_id:'1'}
+  ]
+)
+
+put "seeding requests"
