@@ -24,6 +24,17 @@ class Api::V1::UsersController < Api::V1::BaseController
   #   @users = User.all
   # end
 
+<<<<<<< HEAD
+=======
+  def show
+    set_user
+    @user
+  end
+
+  def new
+  @user = User.new
+  end
+>>>>>>> df5a871b303db0562a0acab39519d93448987413
 
   # def show
   #   set_user
@@ -31,10 +42,16 @@ class Api::V1::UsersController < Api::V1::BaseController
   # end
 
 
+<<<<<<< HEAD
 
   # private
 
   # def set_user
   #   @user = User.find(params[:id])
   # end
+=======
+  def set_user
+    @user = User.find(params[:id])
+  end
+>>>>>>> df5a871b303db0562a0acab39519d93448987413
 end
