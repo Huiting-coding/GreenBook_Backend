@@ -30,9 +30,9 @@ class Api::V1::UsersController < Api::V1::BaseController
     @user
   end
 
-    def new
-    @user = User.new
-    end
+  def new
+  @user = User.new
+  end
 
 
   private
@@ -40,7 +40,4 @@ class Api::V1::UsersController < Api::V1::BaseController
   def set_user
     @user = User.find(params[:id])
   end
-end
-
-
 end
