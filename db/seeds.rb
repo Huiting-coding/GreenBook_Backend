@@ -13,18 +13,18 @@ put "destroy all data"
 
 users = User.create(
   [
-    {nickname:'Huiting', description:"hello GreenBook", email:'hihihi@gmail.com'},
-    {nickname:'Anthony',description:"hello HappyHour",email:'hihihi3@gmail.com'},
-    {nickname:'Heiley',description:"hello Huiting",email:'hihihi2@gmail.com'}
+    {nickname:'Huiting', description:"hello GreenBook", email:'hihihi@gmail.com', password: "123erfg"},
+    {nickname:'Anthony',description:"hello HappyHour",email:'hihihi3@gmail.com',password: "123erfg"},
+    {nickname:'Heiley',description:"hello Huiting",email:'hihihi2@gmail.com',password: "123erfg"}
   ]
 )
 puts "seeding users"
 
 items = Item.create(
   [
-    {name: 'lamp', category:'household', user_id:'1'},
-    {name: 'plate', category:'household', user_id:'2'},
-    {name: 'plate', category:'household', user_id:'2'}
+    {name: 'lamp', category:'household', user_id:'1',description:"Good quality", user: user[0]},
+    {name: 'plate', category:'household', user_id:'2',description:"Good quality",user: user[0]},
+    {name: 'plate', category:'household', user_id:'2',description:"Good quality",user: user[0]}
   ]
 )
 puts "seeding items"
