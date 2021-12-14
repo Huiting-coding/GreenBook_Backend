@@ -22,7 +22,7 @@ class Api::V1::ItemsController < Api::V1::BaseController
 
 
     def permitted_params
-      params.require(:item).permit(:name, :description, :category, :location)
+      params.require(:item).permit(:name, :description, :category, :location, :user)
     end
 
 end
