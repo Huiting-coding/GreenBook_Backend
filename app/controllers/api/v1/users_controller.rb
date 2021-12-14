@@ -1,4 +1,5 @@
 class Api::V1::UsersController < Api::V1::BaseController
+  # skip_before_action :authenticate_user!, only: :index
   before_action :set_user, only: [:show]
   URL ='https://api.weixin.qq.com/sns/jscode2session'
 
@@ -17,6 +18,10 @@ class Api::V1::UsersController < Api::V1::BaseController
     mp_openid = user_info['openid']
     @user = User.find_by(mp_openid: mp_openid)
     @user = User.create(mp_openid: mp_openid, email: "#{SecureRandom.hex(8)}@mail.com", password: 'password') if @user.blank?
+  end
+
+  def index
+    @users = User.all
   end
 
   def show
