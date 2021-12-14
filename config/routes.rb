@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do
     namespace :v1 do
       resources :users, only: %i[index show]
-      resources :items, only: %i[index show destroy] do
-        resources :requests, only: %i[index show destroy]
+      resources :items, only: %i[index create show destroy] do
+        resources :requests, only: %i[create]
       end
+      resources :requests, only: %i[show destroy]
       post 'login', to: 'users#login'
     end
   end
