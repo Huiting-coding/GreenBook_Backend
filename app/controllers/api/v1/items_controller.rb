@@ -7,6 +7,11 @@ class Api::V1::ItemsController < Api::V1::BaseController
 
     def create
       @item = Item.create(permitted_params)
+
+      # we need `user_id` to associate review with corresponding user
+      @user = User.find(params[:user_id])
+      @item.user = @user
+
     end
 
     def show
@@ -22,7 +27,7 @@ class Api::V1::ItemsController < Api::V1::BaseController
 
 
     def permitted_params
-      params.require(:item).permit(:name, :description, :category, :location, :user)
+      params.require(:item).permit(:name, :description, :category, :location)
     end
 
 end
