@@ -1,7 +1,7 @@
-class Api::V1::UsersController < Api::V1::BaseController
-  # skip_before_action :authenticate_user!, only: :index
+class Api::V1::UsersController < Api::V1::BaseController 
+  
   before_action :set_user, only: [:show]
-  URL ='https://api.weixin.qq.com/sns/jscode2session'
+  URL = 'https://api.weixin.qq.com/sns/jscode2session'
 
   def login
     # ?appid=APPID&secret=SECRET&js_code=JSCODE&grant_type=authorization_code
@@ -11,7 +11,7 @@ class Api::V1::UsersController < Api::V1::BaseController
       js_code: params[:code],
       grant_type: 'authorization_code'
     }
-
+    p 'appid', wx_params
     response = RestClient.get(URL, params: wx_params)
     user_info = JSON.parse(response)
     p '==========', user_info
