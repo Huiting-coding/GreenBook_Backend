@@ -25,8 +25,14 @@ class Api::V1::UsersController < Api::V1::BaseController
   end
 
   def show
+
     set_user
-    @user
+    # @userinfos = []
+    # @userinfos << @user.items
+    # if @user = current_user
+    #   @userinfos << @user.requests
+    # end
+
   end
 
   private
