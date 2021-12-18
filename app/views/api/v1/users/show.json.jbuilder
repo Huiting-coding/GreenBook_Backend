@@ -4,11 +4,10 @@ json.items do
   end
 end
 
-  if @user == current_user
-    json.requests do
-      json.array! @user.requests do |request|
-      json.extract! request, :id, :item_id, :user_id
+if @user == current_user
+  json.requests do
+    json.array! @user.requests do |request|
+    json.extract! request, :id, :item_id, :user_id
     end
   end
-
-  end
+end
