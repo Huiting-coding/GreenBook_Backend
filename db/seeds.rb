@@ -20,18 +20,17 @@ user_first = User.create!(
 puts "seeding users"
 
 item_first = Item.create!(
-  name: 'lamp', category:'household', description: "Nostalgic", user: user_first
+  name: 'lamp', category:'household', description: "Nostalgic", user: user_first, location: "China"
 )
 puts "seeding items"
 
 user_second = User.create!(
   nickname:'Anthony', description:"hello GreenBook", email:'hihihi2@gmail.com', password: "123erfgg"
-
 )
 puts "seeding users"
 
 item_second = Item.create!(
-  name: 'Book2', category:'book', description: "campus", user: user_second
+  name: 'Book2', category:'book', description: "campus", user: user_second, location: "Shanghai"
 )
 puts "seeding items"
 
