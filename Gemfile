@@ -69,3 +69,6 @@ gem 'simple_token_authentication'
 
 
 gem 'rest-client'
+
+gem 'pg_search', '~> 2.3.0'
+#for simple search in Item model
