@@ -1,5 +1,5 @@
 class Api::V1::ItemsController < Api::V1::BaseController
-    before_action :find_item, only: %i[show destroy]
+    before_action :find_item, only: %i[show]
 
     def index
       @items = Item.all
@@ -14,7 +14,6 @@ class Api::V1::ItemsController < Api::V1::BaseController
     end
 
     def show
-
     end
 
 
