@@ -6,7 +6,7 @@ class Api::V1::RequestsController < Api::V1::BaseController
     @request.item = @item
     @request.user = current_user
     if @request.save!
-          @item.available = false
+          @item.update(available: false)
           render json: {message: "request created"}
     else
           p "no"
