@@ -1,4 +1,3 @@
-# # app/views/api/v1/stories/index.json.jbuilder
 json.users do
   json.array! @users do |user|
     json.id user.id

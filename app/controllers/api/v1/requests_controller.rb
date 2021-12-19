@@ -4,11 +4,13 @@ class Api::V1::RequestsController < Api::V1::BaseController
     @request = Request.new
     @item = Item.find(params[:item_id])
     @request.item = @item
-    if @request.save
-          render :show
+    @request.user = current_user
+    if @request.save!
+          render json: {message: "request created"}
           p"yes"
     else
           p "no"
+          render json: {message: "Error"}
     end
   end
 
