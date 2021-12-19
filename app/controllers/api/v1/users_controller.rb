@@ -19,7 +19,7 @@ class Api::V1::UsersController < Api::V1::BaseController
     @user = User.find_by(mp_openid: mp_openid)
     @user = User.create(mp_openid: mp_openid, email: "#{SecureRandom.hex(8)}@mail.com", password: 'password') if @user.blank?
   end
- 
+
   def index
     @users = User.all
   end
