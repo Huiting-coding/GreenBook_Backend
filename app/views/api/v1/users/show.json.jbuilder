@@ -2,7 +2,7 @@ json.users do
     json.id @user.id
     json.nickname @user.nickname
     json.description @user.description
-    json.items do
+    json.posts do
       json.array! @user.items do |item|
         json.id item.id
         json.name item.name
