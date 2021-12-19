@@ -72,3 +72,5 @@ gem 'rest-client'
 
 gem 'pg_search', '~> 2.3.0'
 #for simple search in Item model
+
+gem 'acts-as-taggable-on'

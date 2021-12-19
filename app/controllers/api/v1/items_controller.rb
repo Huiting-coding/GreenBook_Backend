@@ -14,6 +14,7 @@ class Api::V1::ItemsController < Api::V1::BaseController
     end
 
     def show
+      @related_items = @item.find_related_tags
     end
 
 
@@ -25,7 +26,7 @@ class Api::V1::ItemsController < Api::V1::BaseController
 
 
     def permitted_params
-      params.require(:item).permit(:name, :description, :category, :location)
+      params.require(:item).permit(:name, :description, :category, :location, :available, :tag_list)
     end
 
 end

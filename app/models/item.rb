@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-    # belongs_to :category
+  acts_as_taggable_on :tags
   belongs_to :user
   has_many :requests
   validates :name, presence: true
